@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.atlavik.challenge.shoppingcart.domain.common.Category;
+
 @Entity
 @Table(name = "product")
 public class Product implements Serializable{

@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.atlavik.challenge.shoppingcart.domain.common.Status;
+
 @Entity
 @Table(
     name = "cart",

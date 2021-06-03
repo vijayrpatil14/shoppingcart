@@ -1,4 +1,4 @@
-package com.atlavik.challenge.shoppingcart.domain.entity;
+package com.atlavik.challenge.shoppingcart.domain.common;
 
 public enum Category {
 	ELECTRONICS,
