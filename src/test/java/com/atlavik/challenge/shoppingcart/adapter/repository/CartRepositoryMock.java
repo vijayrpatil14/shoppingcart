@@ -1,4 +1,4 @@
-package com.atlavik.challenge.shoppingcart.usecase;
+package com.atlavik.challenge.shoppingcart.adapter.repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -116,7 +116,7 @@ public class CartRepositoryMock implements CartRepository  {
 		@Override
 		public Optional<Cart> findById(String id) {
 			Cart cart = shoppingCart.get(id);
-			return Optional.of(cart);
+			return Optional.ofNullable(cart);
 		}
 
 		@Override

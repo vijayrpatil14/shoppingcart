@@ -1,4 +1,4 @@
-package com.atlavik.challenge.shoppingcart.usecase;
+package com.atlavik.challenge.shoppingcart.usecase.GetShoppingCart;
 
 
 import static org.junit.Assert.assertTrue;
@@ -12,24 +12,23 @@ import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
-import com.atlavik.challenge.shoppingcart.adapter.repository.CartRepository;
+import com.atlavik.challenge.shoppingcart.adapter.repository.CartRepositoryMock;
 import com.atlavik.challenge.shoppingcart.domain.common.Status;
 import com.atlavik.challenge.shoppingcart.domain.entity.Cart;
 import com.atlavik.challenge.shoppingcart.domain.entity.Product;
+import com.atlavik.challenge.shoppingcart.usecase.CreateShoppingCart.CreateShoppingCart;
 
-class CreateShoppingCartTest {
+class GetShoppingCartTest {
 
 	private CartRepositoryMock cartRepository = new CartRepositoryMock();
 	private CreateShoppingCart createShoppingCart = new CreateShoppingCart(cartRepository);
+	private GetShoppingCart getShoppingCart = new GetShoppingCart(cartRepository);
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		clear();
+		createShoppingCart.create(build());
 	}
 
 
@@ -39,10 +38,15 @@ class CreateShoppingCartTest {
 	}
 
 	@Test
-	void shouldCreateShoppingCart() {
-		createShoppingCart.create(build());
-		assertEquals(1, cartRepository.count());
-		assertTrue(cartRepository.findById("dummyId").isPresent());
+	void shouldFindShoppingCartById() {
+		Optional<Cart> cart = getShoppingCart.findByCartId("dummyId");
+		assertTrue(cart.isPresent());
+	}
+	
+	@Test
+	void shouldNotFindShoppingCartById() {
+		Optional<Cart> cart = getShoppingCart.findByCartId("falseId");
+		assertFalse(cart.isPresent());
 	}
 
 	private Cart build() {

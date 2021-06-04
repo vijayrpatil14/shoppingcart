@@ -1,4 +1,4 @@
-package com.atlavik.challenge.shoppingcart.usecase;
+package com.atlavik.challenge.shoppingcart.usecase.CreateShoppingCart;
 
 import com.atlavik.challenge.shoppingcart.adapter.repository.CartRepository;
 import com.atlavik.challenge.shoppingcart.domain.entity.Cart;
