@@ -19,7 +19,7 @@ import com.atlavik.challenge.shoppingcart.usecase.DeleteProductFromShoppingCart.
 import io.swagger.annotations.Api;
 
 @RestController
-@Api(tags = { "Altavik - UC" }, value="Add/Delete Product to/from Shopping Cart", description="Update shopping cart")
+@Api(tags = { "Atlavik - UC" }, value="Add/Delete Product to/from Shopping Cart", description="Update shopping cart")
 public class UpdateController {
 
 	private final AddProductToCart addProductToCart;

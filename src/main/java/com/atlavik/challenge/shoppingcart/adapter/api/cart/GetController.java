@@ -15,7 +15,7 @@ import com.atlavik.challenge.shoppingcart.usecase.GetShoppingCart.GetShoppingCar
 import io.swagger.annotations.Api;
 
 @RestController
-@Api(tags = { "Altavik - GC" }, value="Get Shopping Cart", description="Get shopping cart")
+@Api(tags = { "Atlavik - GC" }, value="Get Shopping Cart", description="Get shopping cart")
 public class GetController {
 
 	private final GetShoppingCart getShoppingCart;
