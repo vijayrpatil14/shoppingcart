@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import com.atlavik.challenge.shoppingcart.adapter.repository.CartRepository;
 import com.atlavik.challenge.shoppingcart.domain.entity.Cart;
 
 public class CartRepositoryMock implements CartRepository  {
 	
-	Map<String, Cart> shoppingCart = new HashMap<String, Cart>(); 
+	Map<UUID, Cart> shoppingCart = new HashMap<UUID, Cart>(); 
 
 		@Override
 		public List<Cart> findAll() {
@@ -30,7 +30,7 @@ public class CartRepositoryMock implements CartRepository  {
 		}
 
 		@Override
-		public List<Cart> findAllById(Iterable<String> ids) {
+		public List<Cart> findAllById(Iterable<UUID> ids) {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -66,7 +66,7 @@ public class CartRepositoryMock implements CartRepository  {
 		}
 
 		@Override
-		public void deleteAllByIdInBatch(Iterable<String> ids) {
+		public void deleteAllByIdInBatch(Iterable<UUID> ids) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -78,13 +78,13 @@ public class CartRepositoryMock implements CartRepository  {
 		}
 
 		@Override
-		public Cart getOne(String id) {
+		public Cart getOne(UUID id) {
 			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
-		public Cart getById(String id) {
+		public Cart getById(UUID id) {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -109,18 +109,18 @@ public class CartRepositoryMock implements CartRepository  {
 
 		@Override
 		public <S extends Cart> S save(S entity) {
-			shoppingCart.put(entity.getId(),entity);
+			shoppingCart.put(entity.getCartId(),entity);
 			return entity;
 		}
 
 		@Override
-		public Optional<Cart> findById(String id) {
+		public Optional<Cart> findById(UUID id) {
 			Cart cart = shoppingCart.get(id);
 			return Optional.ofNullable(cart);
 		}
 
 		@Override
-		public boolean existsById(String id) {
+		public boolean existsById(UUID id) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -132,7 +132,7 @@ public class CartRepositoryMock implements CartRepository  {
 		}
 
 		@Override
-		public void deleteById(String id) {
+		public void deleteById(UUID id) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -144,7 +144,7 @@ public class CartRepositoryMock implements CartRepository  {
 		}
 
 		@Override
-		public void deleteAllById(Iterable<? extends String> ids) {
+		public void deleteAllById(Iterable<? extends UUID> ids) {
 			// TODO Auto-generated method stub
 			
 		}
